@@ -1,170 +1,604 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
     <title>Rifted</title>
 
-    <link rel="icon" href="assets/favicon.png">
-    <link rel="stylesheet" href="css/style.css">
+    <meta
+        name="description"
+        content="The official website for everything Rifted.">
+
+    <meta
+        name="theme-color"
+        content="#0b0b0b">
+
+    <!-- OpenGraph -->
+
+    <meta property="og:title" content="Rifted">
+
+    <meta
+        property="og:description"
+        content="The official website for everything Rifted.">
+
+    <meta
+        property="og:image"
+        content="https://ela.is-a.dev/files/images/RiftedBlue.png">
+
+    <meta
+        property="og:type"
+        content="website">
+
+    <!-- Favicon -->
+
+    <link
+        rel="icon"
+        href="https://ela.is-a.dev/files/images/RiftedBlue.png">
+
+    <!-- Google Font -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <style>
+
+        :root{
+
+            /* ---------- COLORS ---------- */
+
+            --background:#090909;
+
+            --background2:#121212;
+
+            --sidebar:rgba(22,22,22,.72);
+
+            --text:#ffffff;
+
+            --muted:#bfbfbf;
+
+            --accent:#5BE7FF;
+
+            --accent2:#E8C5FF;
+
+            --border:rgba(255,255,255,.08);
+
+            --shadow:0 0 40px rgba(91,231,255,.10);
+
+            /* ---------- PAGE ---------- */
+
+            --sidebar-width:260px;
+
+            --page-width:1200px;
+
+            --page-padding:70px;
+
+            --radius:22px;
+
+            /* ---------- LOGO ---------- */
+
+            --logo-width:720px;
+
+            --logo-reveal-radius:95px;
+
+            --logo-tilt:3deg;
+
+            /* ---------- ANIMATION ---------- */
+
+            --page-load-duration:.5s;
+
+            --transition:.25s cubic-bezier(.22,.61,.36,1);
+
+            --carousel-speed:38s;
+
+        }
+
+        *{
+
+            margin:0;
+
+            padding:0;
+
+            box-sizing:border-box;
+
+        }
+
+        html{
+
+            scroll-behavior:smooth;
+
+        }
+
+        body{
+
+            font-family:"Inter",sans-serif;
+
+            background:var(--background);
+
+            color:var(--text);
+
+            overflow-x:hidden;
+
+            opacity:0;
+
+            transform:translateY(20px);
+
+            animation:
+                PageReveal
+                var(--page-load-duration)
+                ease
+                forwards;
+
+        }
+
+        @keyframes PageReveal{
+
+            to{
+
+                opacity:1;
+
+                transform:translateY(0);
+
+            }
+
+        }
+
+    </style>
+
 </head>
 <body>
 
-    <!-- Sidebar -->
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
     <aside id="sidebar">
 
-        <a class="nav-home" href="index.html">
-            <span class="icon">🏠</span>
-            <span>Home</span>
-        </a>
+        <div id="sidebar-top">
 
-        <div class="sidebar-title">
-            RIFTED
+            <a href="#" class="home-button">
+
+                <span class="home-icon">🏠</span>
+
+                <span>Home</span>
+
+            </a>
+
+            <div class="sidebar-divider"></div>
+
+            <h2 class="sidebar-logo">
+                RIFTED
+            </h2>
+
+            <nav>
+
+                <a href="#">
+                    About
+                </a>
+
+                <a href="#">
+                    News
+                </a>
+
+                <details open>
+
+                    <summary>
+                        Wiki
+                    </summary>
+
+                    <div class="wiki-links">
+
+                        <a href="#">
+                            Overview
+                        </a>
+
+                        <a href="#">
+                            Lore
+                        </a>
+
+                        <a href="#">
+                            Characters
+                        </a>
+
+                        <a href="#">
+                            Worlds
+                        </a>
+
+                        <a href="#">
+                            Timeline
+                        </a>
+
+                        <a href="#">
+                            Organizations
+                        </a>
+
+                    </div>
+
+                </details>
+
+                <a href="#">
+                    Contact
+                </a>
+
+            </nav>
+
         </div>
 
-        <nav>
+        <div id="sidebar-bottom">
 
-            <a href="pages/about/">About</a>
+            <p>
 
-            <a href="pages/news/">News</a>
+                © 2026 Rifted
 
-            <details>
+            </p>
 
-                <summary>Wiki</summary>
-
-                <a href="pages/wiki/">Overview</a>
-
-                <a href="pages/wiki/lore/">Lore</a>
-
-                <a href="pages/wiki/characters/">Characters</a>
-
-                <a href="pages/wiki/worlds/">Worlds</a>
-
-                <a href="pages/wiki/timeline/">Timeline</a>
-
-                <a href="pages/wiki/organizations/">Organizations</a>
-
-            </details>
-
-            <a href="pages/contact/">Contact</a>
-
-        </nav>
+        </div>
 
     </aside>
 
-    <!-- Main -->
+    <!-- =====================================================
+         MOBILE MENU BUTTON
+    ====================================================== -->
+
+    <button id="mobile-menu">
+
+        ☰
+
+    </button>
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
     <main>
 
-        <!-- Hero -->
+        <!-- =============================================
+             HERO
+        ============================================== -->
+
         <section id="hero">
 
-            <div id="logo-container">
+            <div id="logo-wrapper">
 
-                <!-- Colored logo -->
+                <!-- Colored Logo -->
+
                 <img
+
                     id="logo-color"
-                    src="assets/images/rifted-color.png"
-                    alt="Rifted Logo">
 
-                <!-- White logo (overlay) -->
+                    src="https://ela.is-a.dev/files/images/RiftedBlue.png"
+
+                    draggable="false"
+
+                    alt="Rifted Logo"
+
+                >
+
+                <!-- White Logo -->
+
                 <img
-                    id="logo-white"
-                    src="assets/images/rifted-white.png"
-                    alt="Rifted Logo">
 
-                <!-- Cursor reveal layer -->
-                <div id="logo-mask"></div>
+                    id="logo-white"
+
+                    src="https://ela.is-a.dev/files/images/Rift.png"
+
+                    draggable="false"
+
+                    alt="Rifted Logo"
+
+                >
+
+                <!-- JS moves this around -->
+
+                <div id="logo-reveal"></div>
 
             </div>
 
             <p class="subtitle">
+
                 The official website for everything Rifted.
+
             </p>
 
         </section>
 
-        <!-- Latest News -->
+        <!-- =============================================
+             NEWS
+        ============================================== -->
+
         <section id="latest-news">
 
-            <h2>Latest News</h2>
+            <h2>
 
-            <div id="news-carousel">
+                Latest News
 
-                <!-- Card 1 -->
-                <article class="news-card">
+            </h2>
 
-                    <h3>Placeholder Title</h3>
+            <div id="carousel-mask">
 
-                    <p>
-                        Latest development update...
-                    </p>
+                <div id="carousel">
 
-                </article>
+                    <!-- Card -->
 
-                <!-- Card 2 -->
-                <article class="news-card">
+                    <article class="news-card">
 
-                    <h3>Placeholder Title</h3>
+                        <span class="news-date">
 
-                    <p>
-                        Another update...
-                    </p>
+                            July 2026
 
-                </article>
+                        </span>
 
-                <!-- Card 3 -->
-                <article class="news-card">
+                        <h3>
 
-                    <h3>Placeholder Title</h3>
+                            Rifted.org launches!
 
-                    <p>
-                        More news...
-                    </p>
+                        </h3>
 
-                </article>
+                        <p>
+
+                            The official website has officially gone online.
+
+                        </p>
+
+                    </article>
+
+                    <!-- Card -->
+
+                    <article class="news-card">
+
+                        <span class="news-date">
+
+                            Coming Soon
+
+                        </span>
+
+                        <h3>
+
+                            Character Pages
+
+                        </h3>
+
+                        <p>
+
+                            Learn about Elina, Hanako, Hina, Speeder and Silver.
+
+                        </p>
+
+                    </article>
+
+                    <!-- Card -->
+
+                    <article class="news-card">
+
+                        <span class="news-date">
+
+                            Coming Soon
+
+                        </span>
+
+                        <h3>
+
+                            Rifted Wiki
+
+                        </h3>
+
+                        <p>
+
+                            Lore, realities, organizations and timeline.
+
+                        </p>
+
+                    </article>
+
+                    <!-- Card -->
+
+                    <article class="news-card">
+
+                        <span class="news-date">
+
+                            Coming Soon
+
+                        </span>
+
+                        <h3>
+
+                            Artwork Gallery
+
+                        </h3>
+
+                        <p>
+
+                            Official illustrations, concepts and more.
+
+                        </p>
+
+                    </article>
+
+                    <!-- Duplicate cards for seamless scrolling -->
+
+                    <article class="news-card">
+
+                        <span class="news-date">
+
+                            July 2026
+
+                        </span>
+
+                        <h3>
+
+                            Rifted.org launches!
+
+                        </h3>
+
+                        <p>
+
+                            The official website has officially gone online.
+
+                        </p>
+
+                    </article>
+
+                    <article class="news-card">
+
+                        <span class="news-date">
+
+                            Coming Soon
+
+                        </span>
+
+                        <h3>
+
+                            Character Pages
+
+                        </h3>
+
+                        <p>
+
+                            Learn about Elina, Hanako, Hina, Speeder and Silver.
+
+                        </p>
+
+                    </article>
+
+                    <article class="news-card">
+
+                        <span class="news-date">
+
+                            Coming Soon
+
+                        </span>
+
+                        <h3>
+
+                            Rifted Wiki
+
+                        </h3>
+
+                        <p>
+
+                            Lore, realities, organizations and timeline.
+
+                        </p>
+
+                    </article>
+
+                    <article class="news-card">
+
+                        <span class="news-date">
+
+                            Coming Soon
+
+                        </span>
+
+                        <h3>
+
+                            Artwork Gallery
+
+                        </h3>
+
+                        <p>
+
+                            Official illustrations, concepts and more.
+
+                        </p>
+
+                    </article>
+
+                </div>
 
             </div>
 
         </section>
 
-        <!-- Under Construction -->
+        <!-- =============================================
+             CONSTRUCTION
+        ============================================== -->
+
         <section id="construction">
 
-            <h2>🚧 Work in Progress</h2>
+            <h2>
+
+                🚧 Work in Progress
+
+            </h2>
 
             <p>
-                This website is currently a work in progress.
+
+                This website is still under construction.
+
             </p>
 
             <p>
-                New pages, lore, artwork, and updates will be added over time.
+
+                New lore, pages, artwork and features will be added over time.
+
             </p>
 
-            <img
-                src="assets/images/doodle.png"
-                alt="Cute doodle">
+            <div id="doodle">
+
+                (cute doodle goes here)
+
+            </div>
 
         </section>
 
+        <!-- =============================================
+             FOOTER
+        ============================================== -->
+
+        <footer>
+
+            <p>
+
+                Rifted • Made with ♥ by
+
+                <a
+
+                    href="https://x.com/elastrixx"
+
+                    target="_blank"
+
+                >
+
+                    Elastrix
+
+                </a>
+
+            </p>
+
+        </footer>
+
     </main>
 
-    <!-- Footer -->
-    <footer>
-
-        <p>
-
-            Rifted • Made with ♥ by
-
-            <a href="https://your-social-link">
-                Elastrix
-            </a>
-
-        </p>
-
-    </footer>
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
     <script src="js/logo.js"></script>
+
     <script src="js/carousel.js"></script>
 
+    <script src="js/sidebar.js"></script>
+
 </body>
+
 </html>
