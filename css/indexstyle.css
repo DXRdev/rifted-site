@@ -174,88 +174,47 @@ main{
 
     position:relative;
 
-    width:min(720px,90vw);
+    width:700px;
+
+    max-width:90vw;
 
     aspect-ratio:3.3/1;
-
-    perspective:1200px;
-
-}
-
-#logo-color,
-#logo-white{
-
-    position:absolute;
-
-    width:100%;
-
-    left:0;
-    top:0;
-
-    user-select:none;
-
-    pointer-events:none;
-
-    transition:
-        transform .2s ease;
 
 }
 
 #logo-color{
 
-    z-index:1;
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    display:block;
+
+}
+
+#logo-mask{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
 
 }
 
 #logo-white{
 
-    z-index:2;
-
-    mask-image:radial-gradient(
-        circle 90px at center,
-        transparent 0,
-        transparent 88px,
-        black 105px
-    );
-
-    -webkit-mask-image:radial-gradient(
-        circle 90px at center,
-        transparent 0,
-        transparent 88px,
-        black 105px
-    );
-
-}
-
-/* Cursor glow */
-
-#logo-reveal{
-
     position:absolute;
 
-    width:180px;
-    height:180px;
+    inset:0;
 
-    border-radius:50%;
+    width:100%;
 
-    pointer-events:none;
-
-    background:
-
-    radial-gradient(
-
-    circle,
-
-    rgba(91,231,255,.25),
-
-    transparent 70%
-
-    );
-
-    filter:blur(10px);
-
-    z-index:3;
-
+    display:block;
 }
 
 /* ---------- SUBTITLE ---------- */
