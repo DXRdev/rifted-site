@@ -1,61 +1,22 @@
 const wrapper = document.getElementById("logo-wrapper");
-const white = document.getElementById("logo-white");
-const glow = document.getElementById("logo-reveal");
+const mask = document.getElementById("logo-mask");
 
-let mouseX = 0;
-let mouseY = 0;
-
-let currentX = 0;
-let currentY = 0;
-
-wrapper.addEventListener("mousemove", e => {
+wrapper.addEventListener("mousemove", (e)=>{
 
     const rect = wrapper.getBoundingClientRect();
 
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    mask.style.clipPath =
+        `circle(90px at ${x}px ${y}px)`;
 
 });
 
-wrapper.addEventListener("mouseleave",()=>{
+wrapper.addEventListener("mouseleave", ()=>{
 
-    mouseX = wrapper.offsetWidth/2;
-    mouseY = wrapper.offsetHeight/2;
+    mask.style.clipPath = "circle(0px at 50% 50%)";
 
 });
 
-function animateLogo(){
-
-    currentX += (mouseX-currentX)*0.15;
-    currentY += (mouseY-currentY)*0.15;
-
-    white.style.webkitMaskImage =
-    `radial-gradient(circle 90px at ${currentX}px ${currentY}px,
-    transparent 0,
-    transparent 90px,
-    black 110px)`;
-
-    white.style.maskImage =
-    `radial-gradient(circle 90px at ${currentX}px ${currentY}px,
-    transparent 0,
-    transparent 90px,
-    black 110px)`;
-
-    glow.style.left=(currentX-90)+"px";
-    glow.style.top=(currentY-90)+"px";
-
-    const rotateY=((currentX-wrapper.offsetWidth/2)/wrapper.offsetWidth)*6;
-
-    const rotateX=((currentY-wrapper.offsetHeight/2)/wrapper.offsetHeight)*-6;
-
-    wrapper.style.transform=
-    `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-
-    requestAnimationFrame(animateLogo);
-
-}
-
-mouseX=wrapper.offsetWidth/2;
-mouseY=wrapper.offsetHeight/2;
-
-animateLogo();
+wrapper.dispatchEvent(new Event("mouseleave"));
