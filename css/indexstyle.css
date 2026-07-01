@@ -171,20 +171,25 @@ main{
 /* ---------- LOGO ---------- */
 #logo-wrapper{
     position: relative;
-    width: 700px;
-    max-width: 90vw;
+    width: 820px;           /* Increased from 700px */
+    max-width: 92vw;        /* Slightly higher */
     aspect-ratio: 3.3/1;
-    overflow: hidden;          /* Important */
+    overflow: hidden;
+    margin: 0 auto;         /* Center it nicely */
 }
 
-#logo-white{
+#logo-white,
+#logo-color{
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
     display: block;
-    object-fit: contain;       /* Added */
+    object-fit: contain;    /* Keeps proportions */
+}
+
+#logo-white{
+    z-index: 1;
 }
 
 #logo-mask{
@@ -193,15 +198,6 @@ main{
     overflow: hidden;
     pointer-events: none;
     z-index: 2;
-}
-
-#logo-color{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: contain;       /* Added */
 }
 
 /* ---------- SUBTITLE ---------- */
@@ -343,7 +339,13 @@ footer a{
 }
 
 @media(max-width:900px){
-
+    ...
+    
+    #logo-wrapper{
+        width: 92vw;        /* Much bigger on mobile */
+        max-width: 460px;   /* You can increase this further if needed */
+    }
+}
     #sidebar{
         transform:translateX(-100%);
         transition:.4s cubic-bezier(0.32, 0.72, 0, 1);
