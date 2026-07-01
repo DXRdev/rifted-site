@@ -2,7 +2,7 @@ const wrapper = document.getElementById("logo-wrapper");
 const mask = document.getElementById("logo-mask");
 
 function updateMask(x, y) {
-    mask.style.clipPath = `circle(95px at ${x}px ${y}px)`;   // slightly bigger
+    mask.style.clipPath = `circle(145px at ${x}px ${y}px)`;   // slightly bigger
 }
 
 // Mouse support
