@@ -169,51 +169,33 @@ main{
 }
 
 /* ---------- LOGO ---------- */
-
 #logo-wrapper{
-
     position:relative;
-
     width:700px;
-
     max-width:90vw;
-
     aspect-ratio:3.3/1;
-
-}
-
-#logo-color{
-
-    position:absolute;
-
-    inset:0;
-
-    width:100%;
-
-    display:block;
-
-}
-
-#logo-mask{
-
-    position:absolute;
-
-    inset:0;
-
-    overflow:hidden;
-
-    pointer-events:none;
-
 }
 
 #logo-white{
-
     position:absolute;
-
     inset:0;
-
     width:100%;
+    z-index:1;           /* White at bottom */
+    display:block;
+}
 
+#logo-mask{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:2;           /* Color on top */
+}
+
+#logo-color{
+    position:absolute;
+    inset:0;
+    width:100%;
     display:block;
 }
 
