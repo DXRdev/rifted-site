@@ -171,7 +171,7 @@ main{
 /* ---------- LOGO ---------- */
 #logo-wrapper{
     position: relative;
-    width: 950px;           
+    width: 1200px;           
     max-width: 92vw;
     aspect-ratio: 3.3/1;
     overflow: hidden;
@@ -338,7 +338,7 @@ footer a{
     /* Logo Size on Mobile */
     #logo-wrapper{
         width: 92vw;
-        max-width: 560px;        /* ← Increase this to make it bigger on phones */
+        max-width: 800px;        /* ← Increase this to make it bigger on phones */
     }
 }
 
