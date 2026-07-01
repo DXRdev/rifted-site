@@ -1,22 +1,32 @@
 const wrapper = document.getElementById("logo-wrapper");
 const mask = document.getElementById("logo-mask");
 
-wrapper.addEventListener("mousemove", (e)=>{
+function updateMask(x, y) {
+    mask.style.clipPath = `circle(110px at ${x}px ${y}px)`;
+}
 
+// Mouse support
+wrapper.addEventListener("mousemove", (e) => {
     const rect = wrapper.getBoundingClientRect();
-
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
-    mask.style.clipPath =
-        `circle(90px at ${x}px ${y}px)`;
-
+    updateMask(x, y);
 });
 
-wrapper.addEventListener("mouseleave", ()=>{
-
+wrapper.addEventListener("mouseleave", () => {
     mask.style.clipPath = "circle(0px at 50% 50%)";
-
 });
 
-wrapper.dispatchEvent(new Event("mouseleave"));
+// Touch support for mobile
+wrapper.addEventListener("touchmove", (e) => {
+    if (e.touches.length === 0) return;
+    const rect = wrapper.getBoundingClientRect();
+    const x = e.touches[0].clientX - rect.left;
+    const y = e.touches[0].clientY - rect.top;
+    updateMask(x, y);
+}, { passive: true });
+
+// On touch devices, show full colored logo by default
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    mask.style.clipPath = "circle(1000px at 50% 50%)";
+}
