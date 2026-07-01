@@ -1,36 +1,26 @@
-const carousel=document.getElementById("carousel");
+const carousel = document.getElementById("carousel");
+let offset = 0;
+let speed = 0.8;
+let isPaused = false;
 
-let speed=0.6;
+function animate() {
+    if (!isPaused) {
+        offset += speed;
 
-let offset=0;
+        if (offset >= carousel.scrollWidth / 2) {
+            offset = 0;
+        }
 
-function animateCarousel(){
-
-    offset+=speed;
-
-    if(offset>=carousel.scrollWidth/2){
-
-        offset=0;
-
+        carousel.style.transform = `translateX(${-offset}px)`;
     }
-
-    carousel.style.transform=
-    `translateX(${-offset}px)`;
-
-    requestAnimationFrame(animateCarousel);
-
+    requestAnimationFrame(animate);
 }
 
-animateCarousel();
+animate();
 
-carousel.addEventListener("mouseenter",()=>{
+// Pause on hover or touch
+carousel.addEventListener("mouseenter", () => isPaused = true);
+carousel.addEventListener("mouseleave", () => isPaused = false);
 
-    speed=0;
-
-});
-
-carousel.addEventListener("mouseleave",()=>{
-
-    speed=.6;
-
-});
+carousel.addEventListener("touchstart", () => isPaused = true, { passive: true });
+carousel.addEventListener("touchend", () => isPaused = false, { passive: true });
