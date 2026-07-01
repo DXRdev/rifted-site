@@ -2,10 +2,10 @@ const wrapper = document.getElementById("logo-wrapper");
 const mask = document.getElementById("logo-mask");
 
 function updateMask(x, y) {
-    mask.style.clipPath = `circle(110px at ${x}px ${y}px)`;
+    mask.style.clipPath = `circle(85px at ${x}px ${y}px)`;   // 15% smaller as requested
 }
 
-// Mouse support
+// Mouse
 wrapper.addEventListener("mousemove", (e) => {
     const rect = wrapper.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -17,7 +17,7 @@ wrapper.addEventListener("mouseleave", () => {
     mask.style.clipPath = "circle(0px at 50% 50%)";
 });
 
-// Touch support for mobile
+// Touch
 wrapper.addEventListener("touchmove", (e) => {
     if (e.touches.length === 0) return;
     const rect = wrapper.getBoundingClientRect();
@@ -26,7 +26,7 @@ wrapper.addEventListener("touchmove", (e) => {
     updateMask(x, y);
 }, { passive: true });
 
-// On touch devices, show full colored logo by default
+// Mobile: show full color by default
 if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-    mask.style.clipPath = "circle(1000px at 50% 50%)";
+    mask.style.clipPath = "circle(1200px at 50% 50%)";
 }
