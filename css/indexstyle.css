@@ -171,8 +171,8 @@ main{
 /* ---------- LOGO ---------- */
 #logo-wrapper{
     position: relative;
-    width: 950px;           
-    max-width: 92vw;
+    width: 1280px;           /* ~35% bigger */
+    max-width: 94vw;
     aspect-ratio: 3.3/1;
     overflow: hidden;
     margin: 0 auto;
@@ -198,90 +198,6 @@ main{
     overflow: hidden;
     pointer-events: none;
     z-index: 2;
-}
-
-/* ---------- SUBTITLE ---------- */
-
-.subtitle{
-    margin-top:35px;
-    color:#d0d0d0;
-    font-size:20px;
-}
-
-/* ---------- NEWS ---------- */
-
-#latest-news{
-    padding:80px;
-}
-
-#latest-news h2{
-    margin-bottom:30px;
-    font-size:38px;
-}
-
-#carousel-mask{
-    overflow:hidden;
-}
-
-#carousel{
-    display:flex;
-    gap:25px;
-    width:max-content;
-}
-
-.news-card{
-    width:330px;
-    min-height:210px;
-    padding:25px;
-    border-radius:22px;
-    background:#171717;
-    border:1px solid rgba(255,255,255,.08);
-    transition:.3s;
-}
-
-.news-card:hover{
-    transform:translateY(-6px);
-    border-color:#5BE7FF;
-    box-shadow:0 0 30px rgba(91,231,255,.15);
-}
-
-.news-date{
-    color:#5BE7FF;
-    font-size:14px;
-}
-
-.news-card h3{
-    margin:18px 0;
-}
-
-/* ---------- CONSTRUCTION ---------- */
-
-#construction{
-    text-align:center;
-    padding:100px 20px;
-}
-
-#construction p{
-    margin-top:12px;
-    color:#c8c8c8;
-}
-
-#doodle{
-    margin-top:40px;
-    opacity:.5;
-}
-
-/* ---------- FOOTER ---------- */
-
-footer{
-    padding:40px;
-    text-align:center;
-    color:#888;
-}
-
-footer a{
-    color:#5BE7FF;
-    text-decoration:none;
 }
 
 /* ==================== MOBILE ==================== */
@@ -331,19 +247,23 @@ footer a{
     }
 
     #hero{
-        padding: 60px 20px;
-        min-height: 70vh;
+        padding: 50px 20px;
+        min-height: 65vh;
     }
     
-    /* Logo Size on Mobile */
+    /* Logo on Mobile - 35% bigger */
     #logo-wrapper{
-        width: 92vw;
-        max-width: 560px;        /* ← Increase this to make it bigger on phones */
+        width: 94vw;
+        max-width: 760px;     /* Increased significantly */
     }
 }
 
 @media(max-width:500px){
     .news-card{
         width: 230px;
+    }
+    
+    #logo-wrapper{
+        max-width: 680px;     /* Slightly smaller on very small phones */
     }
 }
