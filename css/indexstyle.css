@@ -404,4 +404,32 @@ footer a{
 
     }
 
+/* Mobile */
+@media(max-width:900px){
+    #latest-news{
+        padding: 50px 20px;
+    }
+    
+    .news-card{
+        width: 260px;
+        min-height: 190px;
+    }
+    
+    #hero{
+        padding: 60px 20px;
+        min-height: 70vh;
+    }
+    
+    #logo-wrapper{
+        width: 85vw;
+        max-width: 420px;
+    }
+}
+
+@media(max-width:500px){
+    .news-card{
+        width: 230px;
+    }
+}
+
 }
